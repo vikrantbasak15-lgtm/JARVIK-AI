@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JARVIK AI · by Vikrant</title>
+
+  <!-- PWA meta -->
+  <meta name="theme-color" content="#4a90d9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JARVIK AI">
+
+  <!-- Inline PWA manifest via data URI -->
+  <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22JARVIK+AI%22%2C%22short_name%22%3A%22JARVIK%22%2C%22description%22%3A%22Your+intelligent+AI+companion+by+Vikrant%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%231a1816%22%2C%22theme_color%22%3A%22%234a90d9%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg+xmlns%3D%2527http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%2527+viewBox%3D%25270+0+512+512%2527%253E%253Ccircle+cx%3D%2527256%2527+cy%3D%2527256%2527+r%3D%2527256%2527+fill%3D%2527%25234a90d9%2527%2F%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+</head>
+<body>
+
+<!-- HOME SCREEN -->
+<div id="home-screen">
+
+  <!-- NAV -->
+  <nav class="hn">
+    <div class="hn-brand">
+      <div class="hn-logo"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
+      <span class="hn-name">JARVIK AI</span>
+    </div>
+    <div class="hn-btns">
+      <button class="hn-btn" id="nav-login-btn">Log in</button>
+      <button class="hn-btn primary" id="nav-signup-btn">Sign up free</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><div class="hero-badge-dot"></div> Powered by Gemma 2 · Built by Vikrant</div>
+    <h1 class="hero-title">Meet <span>JARVIK AI</span>,<br>your intelligent companion</h1>
+    <p class="hero-sub">JARVIK AI is a thoughtful assistant that helps you write, code, analyze, brainstorm, and think through anything — with memory that keeps your conversations private and personal.</p>
+    <div class="hero-cta">
+      <button class="hcta main" id="hero-signup-btn">Get started for free</button>
+      <button class="hcta sec" id="hero-login-btn">I already have an account</button>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features">
+      <div class="feat">
+        <div class="feat-icon">💬</div>
+        <div class="feat-title">Smart Conversations</div>
+        <div class="feat-desc">JARVIK remembers context within your session and picks up on what matters to you.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🔒</div>
+        <div class="feat-title">Your Account, Your Data</div>
+        <div class="feat-desc">Each account keeps its own conversations. Nobody else can see yours.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📎</div>
+        <div class="feat-title">File Understanding</div>
+        <div class="feat-desc">Attach code, text, JSON and more — JARVIK reads and reasons over your files.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🎤</div>
+        <div class="feat-title">Voice In & Out</div>
+        <div class="feat-desc">Speak your questions and hear the answers. Hands-free, natural interaction.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hfoot">© 2025 JARVIK AI · by Vikrant · All conversations are stored locally on your device</div>
+</div>
+
+<!-- SIGN UP OVERLAY -->
+<div class="auth-overlay hidden" id="signup-overlay">
+  <div class="auth-card">
+    <button class="auth-close" id="signup-close">×</button>
+    <div class="auth-logo"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
+    <div class="auth-title">Create your account</div>
+    <div class="auth-sub">Choose a username and password to get started with JARVIK AI.</div>
+    <div class="auth-field">
+      <label class="auth-label">Username</label>
+      <input class="auth-input" id="su-user" type="text" placeholder="e.g. vikrant42" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="auth-field">
+      <label class="auth-label">Password</label>
+      <input class="auth-input" id="su-pass" type="password" placeholder="At least 6 characters">
+    </div>
+    <div class="auth-field">
+      <label class="auth-label">Confirm Password</label>
+      <input class="auth-input" id="su-pass2" type="password" placeholder="Repeat your password">
+    </div>
+    <button class="auth-submit" id="su-submit">Create account</button>
+    <div class="auth-msg" id="su-msg"></div>
+    <div class="auth-switch">Already have an account? <a id="su-to-login">Log in</a></div>
+  </div>
+</div>
+
+<!-- LOGIN OVERLAY -->
+<div class="auth-overlay hidden" id="login-overlay">
+  <div class="auth-card">
+    <button class="auth-close" id="login-close">×</button>
+    <div class="auth-logo"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
+    <div class="auth-title">Welcome back</div>
+    <div class="auth-sub">Log in to continue with your JARVIK AI account.</div>
+    <div class="auth-field">
+      <label class="auth-label">Username</label>
+      <input class="auth-input" id="li-user" type="text" placeholder="Your username" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="auth-field">
+      <label class="auth-label">Password</label>
+      <input class="auth-input" id="li-pass" type="password" placeholder="Your password">
+    </div>
+    <button class="auth-submit" id="li-submit">Log in</button>
+    <div class="auth-msg" id="li-msg"></div>
+    <div class="auth-switch">Don't have an account? <a id="li-to-signup">Sign up free</a></div>
+  </div>
+</div>
+
+<!-- INTRO ANIMATION -->
+<div id="intro">
+  <div class="ii"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
+  <div class="it">JARVIK AI</div>
+  <div class="is">AI assistant by Vikrant · Powered by Gemma 2</div>
+  <div class="il"><div class="ilb"></div></div>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+
+  <!-- MOBILE SIDEBAR BACKDROP -->
+  <div id="sidebar-backdrop"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div class="sbh">
+      <div class="brand">
+        <div class="blogo"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
+        <div><div class="bname">JARVIK AI</div><div class="bcredit">by Vikrant</div></div>
+      </div>
+      <button id="new-project-btn" class="newbtn">
+        <svg viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+        New conversation
+      </button>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="sbt">
+      <div class="sblbl">Tools</div>
+      <label class="trow">
+        <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13"/></svg>
+        Attach a file
+        <input type="file" id="file-input" accept=".txt,.md,.js,.ts,.py,.json,.html,.css,.csv">
+      </label>
+      <div id="fbadge"></div>
+      <div class="trow" id="mic-btn">
+        <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
+        <span id="miclbl">Voice input</span>
+      </div>
+      <div class="trow roast-btn-row" id="roast-btn">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.047 8.287 8.287 0 009 9.601a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/></svg>
+        <span>Roast me 🔥</span>
+      </div>
+      <div class="trow debate-btn-row" id="debate-btn">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+        <span id="debate-btn-label">Debate me ⚔️</span>
+      </div>
+      <div class="trow code-mode-btn-row" id="code-mode-btn">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+        <span id="code-mode-label">Code Mode</span>
+      </div>
+      <div class="trow da-btn-row" id="da-btn">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+        <span>Devil's Advocate 😈</span>
+      </div>
+      <div class="trow genz-btn-row" id="genz-btn">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+        <span>Gen-Z Converter ✨</span>
+      </div>
+    </div>
+
+    <!-- SCRATCH PAD -->
+    <div class="sbn">
+      <div class="nbh">
+        <div class="nbl">Scratch Pad</div>
+        <div class="nbs">
+          <select id="jw-font">
+            <option value="'DM Sans',sans-serif">Sans</option>
+            <option value="'JetBrains Mono',monospace">Mono</option>
+            <option value="'DM Serif Display',serif">Serif</option>
+          </select>
+          <select id="jw-size">
+            <option value="11px">11</option>
+            <option value="12.5px" selected>13</option>
+            <option value="14px">14</option>
+            <option value="16px">16</option>
+          </select>
+        </div>
+      </div>
+      <div id="jw-editor" contenteditable="true" spellcheck="true" data-ph="Take notes…"></div>
+    </div>
+
+    <!-- CONVERSATIONS -->
+    <div class="sbcv">
+      <div class="sblbl">Conversations</div>
+      <div id="projects-list"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="sbf">
+      <div class="uav" id="sb-avatar">V</div>
+      <div><div class="un" id="sb-name">Vikrant</div><div class="up" id="sb-email">Signed in</div></div>
+      <button class="logout-btn" id="logout-btn" title="Sign out">Sign out</button>
+    </div>
+  </div>
+
+  <!-- MAIN CHAT -->
+  <div class="cmain">
+    <div class="topbar">
+      <div class="tbl">
+        <button class="tibtn" id="sidebar-toggle-btn" title="Hide sidebar">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>
+        </button>
+        <div class="tbtitle" id="chat-title">JARVIK AI</div>
+      </div>
+      <div class="tbr">
+        <span class="mbadge">gemma-2-9b-it via OpenRouter</span>
+        <span class="code-mode-badge hidden" id="code-mode-badge">⌨️ Code Mode</span>
+        <button class="tibtn" id="voice-toggle" title="Toggle voice">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="chat-container" aria-live="polite"></div>
+
+    <div class="ia">
+      <div class="iw">
+        <textarea id="user-input" rows="1" placeholder="Message JARVIK AI…" autocomplete="off"></textarea>
+        <div class="iacts">
+          <button class="ibtn" id="attach-btn" title="Attach file">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32"/></svg>
+          </button>
+          <button id="send-btn" title="Send">
+            <svg viewBox="0 0 24 24"><path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="ihint">JARVIK AI can make mistakes. Verify important information.</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="hidden">
+  <div class="mbox"><button id="modal-close">×</button><div id="modal-body"></div></div>
+</div>
+
+<!-- DEBATE MODAL -->
+<div id="debate-modal" class="hidden">
+  <div class="debate-setup-box">
+    <div class="debate-setup-header">
+      <span>⚔️</span>
+      <div class="debate-setup-title">Debate Me</div>
+      <button class="debate-setup-close" id="debate-modal-close">×</button>
+    </div>
+    <div class="debate-setup-body">
+      <p class="debate-setup-desc">State your position. JARVIK will argue the <strong>opposite side</strong> no matter what. You cannot win. That's the point.</p>
+      <input class="debate-setup-input" id="debate-topic-input" type="text" placeholder="e.g. Pineapple belongs on pizza" maxlength="120" autocomplete="off" />
+      <div class="debate-setup-examples">
+        <span>Try:</span>
+        <button class="debate-eg" data-t="Social media does more harm than good">Social media is harmful</button>
+        <button class="debate-eg" data-t="AI will replace most human jobs">AI will replace jobs</button>
+        <button class="debate-eg" data-t="Cats are better than dogs">Cats &gt; Dogs</button>
+      </div>
+    </div>
+    <button class="debate-setup-start" id="debate-start-btn">⚔️ Start the Debate</button>
+  </div>
+</div>
+
+<!-- ROAST MODAL -->
+<div id="roast-modal" class="hidden">
+  <div class="roast-box">
+    <div class="roast-header">
+      <div class="roast-fire">🔥</div>
+      <div class="roast-title">JARVIK's Verdict</div>
+      <button class="roast-close" id="roast-close">×</button>
+    </div>
+    <div class="roast-content" id="roast-content">
+      <div class="roast-loading" id="roast-loading">
+        <div class="roast-dots"><div></div><div></div><div></div></div>
+        <div>JARVIK is reading your chats and judging you…</div>
+      </div>
+      <div class="roast-text" id="roast-text" style="display:none"></div>
+    </div>
+    <button class="roast-again" id="roast-again" style="display:none">🔥 Roast me again</button>
+  </div>
+</div>
+
+<!-- DEVIL'S ADVOCATE MODAL -->
+<div id="da-modal" class="hidden">
+  <div class="da-box">
+    <div class="da-header">
+      <span class="da-icon">😈</span>
+      <div class="da-title">Devil's Advocate</div>
+      <button class="da-close" id="da-close">×</button>
+    </div>
+    <div class="da-body">
+      <p class="da-desc">Share your idea, plan, or decision. JARVIK will find <strong>every flaw, risk, and reason it could fail</strong>. No sugarcoating.</p>
+      <textarea class="da-input" id="da-input" placeholder="e.g. I want to drop out of college and start a startup…" maxlength="800" rows="4"></textarea>
+      <div class="da-charcount"><span id="da-chars">0</span>/800</div>
+    </div>
+    <button class="da-submit" id="da-submit">😈 Tear it apart</button>
+  </div>
+</div>
+
+<!-- DEVIL'S ADVOCATE RESULT MODAL -->
+<div id="da-result-modal" class="hidden">
+  <div class="da-result-box">
+    <div class="da-result-header">
+      <span class="da-icon">😈</span>
+      <div class="da-title">JARVIK's Pre-Mortem</div>
+      <button class="da-close" id="da-result-close">×</button>
+    </div>
+    <div class="da-result-content" id="da-result-content">
+      <div class="da-loading" id="da-loading">
+        <div class="roast-dots"><div></div><div></div><div></div></div>
+        <div>JARVIK is finding every way this could go wrong…</div>
+      </div>
+      <div class="da-result-text" id="da-result-text" style="display:none"></div>
+    </div>
+    <div class="da-result-footer" id="da-result-footer" style="display:none">
+      <button class="da-again" id="da-again">😈 Tear apart another idea</button>
+    </div>
+  </div>
+</div>
+
+<!-- GEN-Z CONVERTER MODAL -->
+<div id="genz-modal" class="hidden">
+  <div class="genz-box">
+    <div class="genz-header">
+      <span>✨</span>
+      <div class="genz-title">Gen-Z Converter</div>
+      <button class="genz-close" id="genz-close">×</button>
+    </div>
+    <div class="genz-body">
+      <div class="genz-level-row">
+        <span class="genz-level-label">Vibe level:</span>
+        <div class="genz-levels">
+          <button class="genz-lvl" data-l="1">🙂 Mild</button>
+          <button class="genz-lvl active" data-l="2">😎 Mid</button>
+          <button class="genz-lvl" data-l="3">🔥 Cooked</button>
+          <button class="genz-lvl" data-l="4">💀 No cap</button>
+          <button class="genz-lvl" data-l="5">🗿 Unalived</button>
+        </div>
+      </div>
+      <div class="genz-panels">
+        <div class="genz-panel">
+          <div class="genz-panel-label">Paste your boring text</div>
+          <textarea class="genz-input" id="genz-input" placeholder="e.g. I was very tired and did not want to attend the meeting today…" maxlength="1000" rows="6"></textarea>
+          <div class="genz-charcount"><span id="genz-chars">0</span>/1000</div>
+        </div>
+        <div class="genz-panel">
+          <div class="genz-panel-label">Gen-Z translation <span id="genz-output-label"></span></div>
+          <div class="genz-output" id="genz-output">
+            <div class="genz-placeholder">Your slay translation will appear here fr fr…</div>
+          </div>
+          <button class="genz-copy" id="genz-copy" style="display:none">Copy ✨</button>
+        </div>
+      </div>
+    </div>
+    <button class="genz-submit" id="genz-submit">✨ No cap, translate this</button>
+  </div>
+</div>
+
+<!-- FIREBASE SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script src="https://js.puter.com/v2/"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
