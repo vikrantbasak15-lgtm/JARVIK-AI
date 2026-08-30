@@ -71,7 +71,7 @@ This project taught me:
 
 - 📅 **Started:** 2025
 - 🔄 **Status:** Active development
-- 👨‍💻 **Builder:** Vikrant Basak (student, age 14)
+- 👨‍💻 **Builder:** Vikrant Basak (student, age 13)
 - 🇮🇳 **From:** Bengaluru, Karnataka, India
 
 ---
