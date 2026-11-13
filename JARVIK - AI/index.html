@@ -2,132 +2,171 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JARVIK AI · by Vikrant</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>JARVIK AI · Next-Gen Co-Work &amp; Intelligence Studio</title>
 
   <!-- PWA meta -->
-  <meta name="theme-color" content="#4a90d9">
+  <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="JARVIK AI">
 
   <!-- Inline PWA manifest via data URI -->
-  <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22JARVIK+AI%22%2C%22short_name%22%3A%22JARVIK%22%2C%22description%22%3A%22Your+intelligent+AI+companion+by+Vikrant%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%231a1816%22%2C%22theme_color%22%3A%22%234a90d9%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg+xmlns%3D%2527http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%2527+viewBox%3D%25270+0+512+512%2527%253E%253Ccircle+cx%3D%2527256%2527+cy%3D%2527256%2527+r%3D%2527256%2527+fill%3D%2527%25234a90d9%2527%2F%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+  <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22JARVIK+AI%22%2C%22short_name%22%3A%22JARVIK%22%2C%22description%22%3A%22Your+intelligent+AI+co-working+companion+by+Vikrant%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23141413%22%2C%22theme_color%22%3A%22%2335d6e8%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg+xmlns%3D%2527http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%2527+viewBox%3D%25270+0+512+512%2527%253E%253Ccircle+cx%3D%2527256%2527+cy%3D%2527256%2527+r%3D%2527256%2527+fill%3D%2527%252335d6e8%2527%2F%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Highlight.js syntax theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  
+  <!-- KaTeX for crisp LaTeX formulas -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <!-- Markdown parser & Highlight.js -->
+  <script src="vendor/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <!-- Mermaid.js for interactive diagrams -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+
+  <!-- PDF.js for reading documents in-browser -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <!-- Core stylesheets -->
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="power.css">
+  <link rel="stylesheet" href="power2.css">
+  <link rel="stylesheet" href="power4.css">
+  <link rel="stylesheet" href="workspace.css">
+  <link rel="stylesheet" href="power5.css">
+  <link rel="stylesheet" href="power5b.css">
+  <!-- JARVIK Console: final design layer (must load last) -->
+  <link rel="stylesheet" href="console.css">
 </head>
-<body>
+<body class="t-pitchblack">
 
-<!-- HOME SCREEN -->
+<!-- WELCOME / LAUNCH SCREEN -->
 <div id="home-screen">
 
-  <!-- NAV -->
-  <nav class="hn">
-    <div class="hn-brand">
-      <div class="hn-logo"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
-      <span class="hn-name">JARVIK AI</span>
+  <!-- TOP AMBIENT GLOW BANNER -->
+  <div class="home-glow-mesh"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="lp-nav">
+    <div class="lp-brand">
+      <span class="lp-logo" aria-hidden="true">
+        <svg class="reactor" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="5" stroke-dasharray="24.5 5.3" stroke-dashoffset="2.65"/><path d="M18 26H82L50 80Z" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M30.8 33.2H69.2L50 65.6Z" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M40.4 38.6H59.6L50 54.8Z" fill="currentColor"/></svg>
+      </span>
+      <span class="lp-name">JARVIK AI</span>
     </div>
-    <div class="hn-btns">
-      <button class="hn-btn" id="nav-login-btn">Log in</button>
-      <button class="hn-btn primary" id="nav-signup-btn">Sign up free</button>
+    <div class="lp-nav-btns">
+      <button class="lp-btn ghost" id="nav-theme-btn" aria-label="Toggle light and dark mode">☀ Light mode</button>
+      <button class="lp-btn solid" id="nav-launch-btn">Launch JARVIK</button>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-badge"><div class="hero-badge-dot"></div> Powered by Gemma 2 · Built by Vikrant</div>
-    <h1 class="hero-title">Meet <span>JARVIK AI</span>,<br>your intelligent companion</h1>
-    <p class="hero-sub">JARVIK AI is a thoughtful assistant that helps you write, code, analyze, brainstorm, and think through anything — with memory that keeps your conversations private and personal.</p>
-    <div class="hero-cta">
-      <button class="hcta main" id="hero-signup-btn">Get started for free</button>
-      <button class="hcta sec" id="hero-login-btn">I already have an account</button>
+  <!-- HERO: two columns -->
+  <section class="lp-hero">
+    <div class="lp-copy">
+      <p class="lp-pill"><span class="lp-pill-dot" aria-hidden="true"></span>Powered by OpenRouter · Built by Vikrant</p>
+      <h1 class="lp-title">Meet <span>JARVIK AI</span>,<br>your intelligent<br>companion</h1>
+      <p class="lp-desc">Write, code, analyze and brainstorm with an assistant that remembers your context. No account. No setup. Just hop in and start talking.</p>
+      <div class="lp-cta">
+        <button class="lp-btn primary" id="hero-launch-btn">Launch JARVIK →</button>
+        <button class="lp-btn ghost" id="hero-key-btn">Set API key</button>
+      </div>
+      <ul class="lp-trust">
+        <li><span class="ic ic-zap" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>Free models included</li>
+        <li><span class="ic ic-lock" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>100% local storage</li>
+        <li><span class="ic ic-receipt" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h5"/></svg></span>Bring your own key</li>
+      </ul>
     </div>
 
-    <!-- FEATURES -->
-    <div class="features">
-      <div class="feat">
-        <div class="feat-icon">💬</div>
-        <div class="feat-title">Smart Conversations</div>
-        <div class="feat-desc">JARVIK remembers context within your session and picks up on what matters to you.</div>
+    <!-- Chat preview card -->
+    <div class="lp-chat">
+      <div class="lp-chat-bar">
+        <span class="lp-dot red" aria-hidden="true"></span>
+        <span class="lp-dot amber" aria-hidden="true"></span>
+        <span class="lp-dot green" aria-hidden="true"></span>
+        <span class="lp-chat-label">JARVIK AI</span>
       </div>
-      <div class="feat">
-        <div class="feat-icon">🔒</div>
-        <div class="feat-title">Your Account, Your Data</div>
-        <div class="feat-desc">Each account keeps its own conversations. Nobody else can see yours.</div>
-      </div>
-      <div class="feat">
-        <div class="feat-icon">📎</div>
-        <div class="feat-title">File Understanding</div>
-        <div class="feat-desc">Attach code, text, JSON and more — JARVIK reads and reasons over your files.</div>
-      </div>
-      <div class="feat">
-        <div class="feat-icon">🎤</div>
-        <div class="feat-title">Voice In & Out</div>
-        <div class="feat-desc">Speak your questions and hear the answers. Hands-free, natural interaction.</div>
+      <div class="lp-chat-body">
+        <div class="lp-msg user">Hey JARVIK, plan my week — deep work in the mornings, gym at 6.</div>
+        <div class="lp-msg bot">
+          <span class="lp-avatar" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="7"/><path d="M18 26H82L50 80Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path d="M30.8 33.2H69.2L50 65.6Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/></svg></span>
+          <span class="lp-msg-text">Done — I sketched your week: Mon–Thu deep work 9:00–12:00, gym at 18:00, and Friday afternoons left open for review. Want me to turn it into reminders?</span>
+        </div>
+        <div class="lp-modes" role="group" aria-label="Chat mode presets">
+          <button class="lp-mode" data-mode="Draft">🔥 Draft</button>
+          <button class="lp-mode" data-mode="Code">💻 Code</button>
+          <button class="lp-mode" data-mode="Roast">🔥 Roast</button>
+          <button class="lp-mode" data-mode="Debate">⚔ Debate</button>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="hfoot">© 2025 JARVIK AI · by Vikrant · All conversations are stored locally on your device</div>
+  <!-- FEATURE CARDS -->
+  <section class="lp-features" aria-label="Features">
+    <article class="lp-card">
+      <span class="lp-card-icon i-cyan" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>
+      <h3>Smart Conversations</h3>
+      <p>Context-aware chat that picks up on what matters to you.</p>
+    </article>
+    <article class="lp-card">
+      <span class="lp-card-icon i-yellow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></span>
+      <h3>Private by Design</h3>
+      <p>No accounts, no servers — everything stays on your device.</p>
+    </article>
+    <article class="lp-card">
+      <span class="lp-card-icon i-purple" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></span>
+      <h3>File Understanding</h3>
+      <p>Attach code, text or JSON — JARVIK reasons over your files.</p>
+    </article>
+    <article class="lp-card">
+      <span class="lp-card-icon i-blue" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg></span>
+      <h3>Voice In &amp; Out</h3>
+      <p>Speak your questions and hear the answers, hands-free.</p>
+    </article>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="lp-foot">
+    <p>© 2025 JARVIK AI · by Vikrant · All conversations are stored locally on your device</p>
+    <span class="lp-foot-dot" aria-hidden="true"></span>
+  </footer>
 </div>
 
-<!-- SIGN UP OVERLAY -->
-<div class="auth-overlay hidden" id="signup-overlay">
+<!-- API KEY MODAL -->
+<div id="key-overlay" class="auth-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="key-auth-title">
   <div class="auth-card">
-    <button class="auth-close" id="signup-close">×</button>
-    <div class="auth-logo"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
-    <div class="auth-title">Create your account</div>
-    <div class="auth-sub">Choose a username and password to get started with JARVIK AI.</div>
+    <button class="auth-close" id="key-close" aria-label="Close dialog">✕</button>
+    <div class="auth-logo"><svg class="reactor" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="5" stroke-dasharray="24.5 5.3" stroke-dashoffset="2.65"/><path d="M18 26H82L50 80Z" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M30.8 33.2H69.2L50 65.6Z" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M40.4 38.6H59.6L50 54.8Z" fill="currentColor"/></svg></div>
+    <div class="auth-title" id="key-auth-title">Set your API key</div>
+    <div class="auth-sub">Your key stays only in this browser. JARVIK talks to OpenRouter, NVIDIA NIM, OpenAI, Anthropic, Gemini, Groq, Ollama and any custom endpoint. Your key is stored solely in local browser storage and never uploaded. Get a free key at <a href="https://openrouter.ai/keys" target="_blank" rel="noopener" class="key-link">openrouter.ai/keys</a>.</div>
     <div class="auth-field">
-      <label class="auth-label">Username</label>
-      <input class="auth-input" id="su-user" type="text" placeholder="e.g. vikrant42" autocomplete="off" spellcheck="false">
+      <label class="auth-label">Provider</label>
+      <select class="auth-input prov-select" id="key-provider-select" aria-label="AI provider">
+        <option value="openrouter" selected>OpenRouter</option>
+      </select>
     </div>
     <div class="auth-field">
-      <label class="auth-label">Password</label>
-      <input class="auth-input" id="su-pass" type="password" placeholder="At least 6 characters">
+      <label class="auth-label">API Key</label>
+      <input class="auth-input" id="key-input" type="password" placeholder="sk-or-v1-…" autocomplete="off" spellcheck="false">
     </div>
-    <div class="auth-field">
-      <label class="auth-label">Confirm Password</label>
-      <input class="auth-input" id="su-pass2" type="password" placeholder="Repeat your password">
-    </div>
-    <button class="auth-submit" id="su-submit">Create account</button>
-    <div class="auth-msg" id="su-msg"></div>
-    <div class="auth-switch">Already have an account? <a id="su-to-login">Log in</a></div>
+    <label class="key-show-row"><input type="checkbox" id="key-show"> Show key</label>
+    <button class="auth-submit" id="key-submit">Save key</button>
+    <button class="auth-demo-btn" id="key-guest-btn">Or Explore in Demo Mode →</button>
+    <div class="auth-msg" id="key-msg"></div>
+    <div class="key-privacy">🔐 Stored locally in your browser storage. 100% private.</div>
   </div>
 </div>
 
-<!-- LOGIN OVERLAY -->
-<div class="auth-overlay hidden" id="login-overlay">
-  <div class="auth-card">
-    <button class="auth-close" id="login-close">×</button>
-    <div class="auth-logo"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
-    <div class="auth-title">Welcome back</div>
-    <div class="auth-sub">Log in to continue with your JARVIK AI account.</div>
-    <div class="auth-field">
-      <label class="auth-label">Username</label>
-      <input class="auth-input" id="li-user" type="text" placeholder="Your username" autocomplete="off" spellcheck="false">
-    </div>
-    <div class="auth-field">
-      <label class="auth-label">Password</label>
-      <input class="auth-input" id="li-pass" type="password" placeholder="Your password">
-    </div>
-    <button class="auth-submit" id="li-submit">Log in</button>
-    <div class="auth-msg" id="li-msg"></div>
-    <div class="auth-switch">Don't have an account? <a id="li-to-signup">Sign up free</a></div>
-  </div>
-</div>
-
-<!-- INTRO ANIMATION -->
-<div id="intro">
-  <div class="ii"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
-  <div class="it">JARVIK AI</div>
-  <div class="is">AI assistant by Vikrant · Powered by Gemma 2</div>
-  <div class="il"><div class="ilb"></div></div>
-</div>
-
-<!-- APP -->
+<!-- MAIN CO-WORK APP -->
 <div id="app" class="hidden">
 
   <!-- MOBILE SIDEBAR BACKDROP -->
@@ -137,125 +176,662 @@
   <div id="sidebar">
     <div class="sbh">
       <div class="brand">
-        <div class="blogo"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 14.2c-2.92 0-5.5-1.5-7-3.77.03-2.33 4.67-3.61 7-3.61s6.97 1.28 7 3.61A8.32 8.32 0 0116 23.2z"/></svg></div>
-        <div><div class="bname">JARVIK AI</div><div class="bcredit">by Vikrant</div></div>
+        <div class="blogo"><svg class="reactor" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="5" stroke-dasharray="24.5 5.3" stroke-dashoffset="2.65"/><path d="M18 26H82L50 80Z" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M30.8 33.2H69.2L50 65.6Z" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M40.4 38.6H59.6L50 54.8Z" fill="currentColor"/></svg></div>
+        <div><div class="bname">JARVIK AI</div><div class="bcredit">Co-Work Studio by Vikrant</div></div>
       </div>
-      <button id="new-project-btn" class="newbtn">
+      <button id="new-project-btn" class="newbtn" title="Start a fresh conversation">
         <svg viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
         New conversation
       </button>
-    </div>
 
-    <!-- TOOLS -->
-    <div class="sbt">
-      <div class="sblbl">Tools</div>
-      <label class="trow">
-        <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13"/></svg>
-        Attach a file
-        <input type="file" id="file-input" accept=".txt,.md,.js,.ts,.py,.json,.html,.css,.csv">
-      </label>
-      <div id="fbadge"></div>
-      <div class="trow" id="mic-btn">
-        <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
-        <span id="miclbl">Voice input</span>
-      </div>
-      <div class="trow roast-btn-row" id="roast-btn">
-        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.047 8.287 8.287 0 009 9.601a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/></svg>
-        <span>Roast me 🔥</span>
-      </div>
-      <div class="trow debate-btn-row" id="debate-btn">
-        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
-        <span id="debate-btn-label">Debate me ⚔️</span>
-      </div>
-      <div class="trow code-mode-btn-row" id="code-mode-btn">
-        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
-        <span id="code-mode-label">Code Mode</span>
-      </div>
-      <div class="trow da-btn-row" id="da-btn">
-        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
-        <span>Devil's Advocate 😈</span>
-      </div>
-      <div class="trow genz-btn-row" id="genz-btn">
-        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
-        <span>Gen-Z Converter ✨</span>
+      <!-- CONVERSATION SEARCH BAR -->
+      <div class="sb-search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="conv-search-input" placeholder="Search chats... (Ctrl+K)" autocomplete="off" spellcheck="false">
+        <button id="conv-search-clear" class="hidden" title="Clear search">✕</button>
       </div>
     </div>
 
-    <!-- SCRATCH PAD -->
-    <div class="sbn">
-      <div class="nbh">
-        <div class="nbl">Scratch Pad</div>
-        <div class="nbs">
-          <select id="jw-font">
-            <option value="'DM Sans',sans-serif">Sans</option>
-            <option value="'JetBrains Mono',monospace">Mono</option>
-            <option value="'DM Serif Display',serif">Serif</option>
-          </select>
-          <select id="jw-size">
-            <option value="11px">11</option>
-            <option value="12.5px" selected>13</option>
-            <option value="14px">14</option>
-            <option value="16px">16</option>
-          </select>
+    <!-- SIDEBAR SCROLLABLE BODY -->
+    <div class="sb-body">
+      <!-- CO-WORK TOOLS -->
+      <div class="sbt">
+        <div class="sblbl">Co-Work Tools</div>
+
+        <div class="trow cowork-btn-row" id="sb-cowork-btn" title="Toggle side-by-side Claude Cowork Canvas">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+          <span id="sb-cowork-lbl">Co-Work Canvas</span>
+          <span class="pulse-tag">ACTIVE</span>
         </div>
-      </div>
-      <div id="jw-editor" contenteditable="true" spellcheck="true" data-ph="Take notes…"></div>
-    </div>
 
-    <!-- CONVERSATIONS -->
-    <div class="sbcv">
-      <div class="sblbl">Conversations</div>
-      <div id="projects-list"></div>
+        <div class="trow" id="sb-vscode-btn" title="Open integrated Visual Studio Code IDE (Ctrl+Shift+E)">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
+          <span>VS Code Studio</span>
+          <span class="badge-count badge-ide">IDE</span>
+        </div>
+
+        <div class="trow" id="sb-browser-btn" title="Open in-app Web Browser to surf the internet (Ctrl+Shift+B)">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"/></svg>
+          <span>In-App Browser</span>
+          <span class="badge-count badge-web">WEB</span>
+        </div>
+
+        <div class="trow" id="sb-knowledge-btn" title="Manage project knowledge reference documents">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>
+          <span>Project Knowledge</span>
+          <span class="badge-count" id="sb-knowledge-count">0</span>
+        </div>
+
+        <div class="trow" id="tm-open-btn" title="Join a Team Room">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Team Room</span>
+          <span class="badge-count" id="tm-side-badge">Offline</span>
+        </div>
+        <div class="trow" id="ua-side-btn" title="Usage Analytics">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+          <span>Usage Analytics</span>
+        </div>
+        <div id="tm-online-wrap">
+          <div class="sblbl-sub" id="tm-online-lbl">Online · <span id="tm-count">0</span></div>
+          <div id="tm-people" hidden></div>
+          <div class="tm-status-row" id="tm-status-row" hidden>
+            <span id="tm-status-side" role="status">Offline</span>
+            <button id="tm-leave-btn" class="tm-leave" title="Leave team room">Leave</button>
+          </div>
+        </div>
+
+        <div class="sblbl-sub">Workspace Input</div>
+
+        <label class="trow" title="Upload documents, code, images, or PDFs">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13"/></svg>
+          <span>Attach file / image / PDF</span>
+          <input type="file" id="file-input" accept=".txt,.md,.js,.ts,.py,.json,.html,.css,.csv,.pdf,.png,.jpg,.jpeg,.webp,.svg">
+        </label>
+        <div id="fbadge"></div>
+
+        <div class="trow" id="mic-btn" title="Speak to type">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
+          <span id="miclbl">Voice input</span>
+        </div>
+
+        <details class="sb-details" id="modes-group">
+          <summary class="sb-summary">AI Personas &amp; Modes</summary>
+
+        <div class="trow code-mode-btn-row" id="code-mode-btn" title="Toggle full code generation mode">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+          <span id="code-mode-label">Code Mode</span>
+        </div>
+
+        <div class="trow roast-btn-row" id="roast-btn" title="JARVIK roasts your conversation history">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.047 8.287 8.287 0 009 9.601a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/></svg>
+          <span>Roast me 🔥</span>
+        </div>
+
+        <div class="trow debate-btn-row" id="debate-btn" title="JARVIK relentlessly debates your position">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+          <span id="debate-btn-label">Debate me ⚔️</span>
+        </div>
+
+        <div class="trow da-btn-row" id="da-btn" title="Ruthless pre-mortem on your idea">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+          <span>Devil's Advocate 😈</span>
+        </div>
+
+        <div class="trow genz-btn-row" id="genz-btn" title="Translate text into peak Gen-Z slang">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+          <span>Gen-Z Converter ✨</span>
+        </div>
+        </details>
+      </div>
+
+      <!-- SCRATCH PAD (collapsible — one click away) -->
+      <details class="sbn sb-details" id="scratch-group">
+        <summary class="sb-summary">Scratch Pad</summary>
+        <div class="sbn-inner">
+          <div class="nbh nbh-tight">
+            <div class="nbs">
+              <select id="jw-font" title="Font family">
+                <option value="'DM Sans',sans-serif">Sans</option>
+                <option value="'JetBrains Mono',monospace">Mono</option>
+                <option value="'DM Serif Display',serif">Serif</option>
+              </select>
+              <select id="jw-size" title="Font size">
+                <option value="11px">11</option>
+                <option value="12.5px" selected>13</option>
+                <option value="14px">14</option>
+                <option value="16px">16</option>
+              </select>
+            </div>
+          </div>
+          <div id="jw-editor" contenteditable="true" spellcheck="true" data-ph="Take notes, draft ideas…"></div>
+        </div>
+      </details>
+
+      <!-- CONVERSATIONS -->
+      <div class="sbcv">
+        <div class="sblbl-row">
+          <span class="sblbl">Conversations</span>
+          <button id="sb-clear-all" class="sb-mini-action" title="Clear all conversations">Clear</button>
+        </div>
+        <div id="projects-list"></div>
+      </div>
     </div>
 
     <!-- FOOTER -->
     <div class="sbf">
-      <div class="uav" id="sb-avatar">V</div>
-      <div><div class="un" id="sb-name">Vikrant</div><div class="up" id="sb-email">Signed in</div></div>
-      <button class="logout-btn" id="logout-btn" title="Sign out">Sign out</button>
+      <div class="sbf-profile">
+        <div class="uav" id="sb-avatar">J</div>
+        <div class="sbf-meta">
+          <div class="un" id="sb-name">JARVIK AI</div>
+          <div class="up" id="sb-email"><span class="status-dot"></span> Sovereign &amp; Private</div>
+        </div>
+      </div>
+      <div class="sbf-actions">
+        <button class="sbf-btn" id="sb-home-btn" title="Back to Home Screen">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6h-4v6H4a1 1 0 01-1-1v-9.5z"/></svg> Home
+        </button>
+        <button class="sbf-btn" id="settings-btn" title="Settings &amp; Parameters">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings
+        </button>
+        <button class="sbf-btn key-btn-highlight" id="key-btn" title="Configure AI provider & API key">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-1.5 1.5L14 9l-2-2-4 4 2 2-3 3-4-4-1 1a5.66 5.66 0 008 8l1-1-4-4 3-3 2 2 4-4-2-2 3.5-3.5a2.12 2.12 0 000-3 2.12 2.12 0 00-3 0z"/></svg> API Key
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- MAIN CHAT -->
+  <!-- MAIN CHAT STREAM (Left Pane in Cowork Mode) -->
   <div class="cmain">
+
+    <!-- TOPBAR -->
     <div class="topbar">
+      <!-- Left: Navigation & Conversation Title -->
       <div class="tbl">
-        <button class="tibtn" id="sidebar-toggle-btn" title="Hide sidebar">
-          <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>
-        </button>
-        <div class="tbtitle" id="chat-title">JARVIK AI</div>
+        <div class="tb-nav-cluster">
+          <button class="tibtn" id="topbar-home-btn" title="Back to Home Screen">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6h-4v6H4a1 1 0 01-1-1v-9.5z"/></svg>
+          </button>
+          <button class="tibtn" id="sidebar-toggle-btn" title="Toggle sidebar (Ctrl+B)">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>
+          </button>
+        </div>
+
+        <div class="tb-divider"></div>
+
+        <div class="tbtitle-wrap">
+          <div class="tbtitle" id="chat-title" title="Click to rename">JARVIK AI</div>
+          <span class="persona-badge" id="current-persona-badge">Default</span>
+        </div>
       </div>
+
+      <!-- Right: Hero Tools & Utility Cluster -->
       <div class="tbr">
-        <span class="mbadge">gemma-2-9b-it via OpenRouter</span>
-        <span class="code-mode-badge hidden" id="code-mode-badge">⌨️ Code Mode</span>
-        <button class="tibtn" id="voice-toggle" title="Toggle voice">
-          <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"/></svg>
+        <div id="tm-top" hidden>
+          <span id="tm-room-tag" title="Team Room"></span>
+          <div id="tm-avs" aria-label="Online in room"></div>
+          <button id="tm-invite-btn" class="cmd-trigger-btn" title="Copy invite link (#team=…)">Copy invite</button>
+        </div>
+        <!-- Main Workspace Tools -->
+        <div class="tb-hero-tools">
+          <button class="cowork-top-btn active" id="cowork-toggle-btn" title="Toggle Co-Work Canvas (Hide / Show)">
+            <span class="cowork-dot"></span>
+            <span>Co-Work Canvas</span>
+          </button>
+
+          <button class="sprint-badge-btn" id="sprint-toggle-btn" title="Toggle Interactive Sprint Roadmap">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span>Sprint</span>
+          </button>
+
+          <button class="vsc-top-btn" id="topbar-vscode-btn" title="Launch VS Code Studio IDE (Ctrl+Shift+E)">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9l2.5 3-2.5 3m-4 0L7.5 12l2.5-3M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>VS Code</span>
+          </button>
+
+          <button class="browser-top-btn" id="topbar-browser-btn" title="Open In-App Web Browser (Ctrl+Shift+B)">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span>Browser</span>
+          </button>
+
+          <div class="mbadge-wrap">
+            <span class="mbadge" id="model-badge" title="Click to switch model">Llama 3.3 70B · Free</span>
+          </div>
+          <button class="theme-badge-btn" id="theme-toggle" title="Toggle theme">
+            <svg class="ic-moon" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+            <svg class="ic-sun" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+            <span>Theme</span>
+          </button>
+          <span class="code-mode-badge hidden" id="code-mode-badge">⌨️ Code Mode</span>
+        </div>
+
+        <div class="tb-divider"></div>
+
+        <!-- Quick Command Trigger -->
+        <button class="cmd-trigger-btn" id="cmd-trigger" title="Command Palette (Ctrl+K)">
+          <span>⌘K</span>
         </button>
+        <button class="cmd-trigger-btn" id="ts-toggle" title="Search in thread">Find</button>
+        <button class="cmd-trigger-btn" id="fm-toggle" title="Focus mode (Ctrl+.)">◉</button>
+        <button class="cmd-trigger-btn" id="oo-flush" title="Send queued offline prompts">📤 <span id="oo-count">0</span></button>
+        <button class="cmd-trigger-btn" id="ua-btn" title="Usage Analytics">📊</button>
+      </div>
+    </div>
+    <div id="ts-bar" class="hidden" role="search">
+      <input id="ts-input" type="text" placeholder="Find in thread…" autocomplete="off" spellcheck="false">
+      <span id="ts-count">0/0</span>
+      <button id="ts-prev" title="Previous">↑</button>
+      <button id="ts-next" title="Next">↓</button>
+      <button id="ts-close" title="Close (Esc)">✕</button>
+    </div>
+
+    <!-- COLLAPSIBLE SPRINT ROADMAP PANEL -->
+    <div id="sprint-panel" class="sprint-panel hidden">
+      <div class="sprint-header">
+        <div class="sprint-title-row">
+          <span>📋</span>
+          <span class="sprint-title">Co-Work Sprint Roadmap</span>
+          <span class="sprint-progress" id="sprint-progress-lbl">0/0 done</span>
+        </div>
+        <div class="sprint-actions">
+          <button class="sprint-add-btn" id="sprint-add-step-btn">+ Add Step</button>
+          <button class="sprint-close-btn" id="sprint-close-btn">✕</button>
+        </div>
+      </div>
+      <div class="sprint-list" id="sprint-list"></div>
+    </div>
+
+    <!-- DRAG AND DROP OVERLAY -->
+    <div id="drop-overlay" class="drop-overlay hidden">
+      <div class="drop-card">
+        <div class="drop-icon">📎</div>
+        <div class="drop-title">Drop files or images here</div>
+        <div class="drop-sub">Code, text, PDF documents, and screenshots are parsed instantly</div>
       </div>
     </div>
 
+    <!-- CHAT VIEWPORT -->
     <div id="chat-container" aria-live="polite"></div>
 
+    <!-- FLOATING STOP BUTTON -->
+    <div class="stop-gen-bar">
+      <button id="stop-gen-btn" class="stop-gen-btn hidden" title="Stop generating (Esc)">
+        <span class="stop-icon">■</span>
+        <span>Stop generating</span>
+      </button>
+    </div>
+
+    <!-- INPUT DOCK -->
     <div class="ia">
+      <!-- ATTACHMENT PREVIEW DOCK -->
+      <div id="attachments-preview" class="attachments-preview hidden"></div>
+
+      <!-- SLASH COMMANDS POPUP -->
+      <div id="slash-popup" class="slash-popup hidden">
+        <div class="slash-header">⚡ Slash Commands &amp; Co-Work Shortcuts</div>
+        <div id="slash-list" class="slash-list"></div>
+      </div>
+
       <div class="iw">
-        <textarea id="user-input" rows="1" placeholder="Message JARVIK AI…" autocomplete="off"></textarea>
+        <textarea id="user-input" rows="1" placeholder="Message JARVIK AI… (Type '/' for commands, paste images with Ctrl+V)" autocomplete="off"></textarea>
         <div class="iacts">
-          <button class="ibtn" id="attach-btn" title="Attach file">
+          <button class="ibtn" id="pl-btn" title="Prompt library">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+          </button>
+          <button class="ibtn" id="attach-btn" title="Attach file, PDF, or screenshot">
             <svg viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32"/></svg>
           </button>
-          <button id="send-btn" title="Send">
+          <button id="send-btn" title="Send (Enter)">
             <svg viewBox="0 0 24 24"><path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"/></svg>
           </button>
         </div>
       </div>
-      <div class="ihint">JARVIK AI can make mistakes. Verify important information.</div>
+      <div class="ihint">JARVIK AI Co-Work Studio · Verify important information · Multi-Provider: OpenRouter, NVIDIA NIM, Claude, GPT, Groq, Ollama &amp; more</div>
+    </div>
+  </div>
+
+  <!-- CLAUDE CO-WORK CANVAS (Right Pane in Cowork Mode) -->
+  <div id="artifacts-drawer" class="artifacts-drawer">
+    <div id="cowork-resize" class="cowork-resize" role="separator" aria-orientation="vertical" aria-label="Resize Co-Work panel" tabindex="0"></div>
+
+    <!-- ARTIFACTS MULTI-DOCUMENT SWITCHER BAR -->
+    <div class="art-switcher-bar" id="art-switcher-bar">
+      <!-- Dynamic document tabs injected here -->
+    </div>
+
+    <!-- CANVAS HEADER -->
+    <div class="art-header">
+      <div class="art-brand">
+        <span class="art-spark">⚡</span>
+        <span class="art-title" id="art-title" title="Click to rename tab">Interactive Canvas</span>
+        <button class="art-rename-header-btn" id="art-rename-header-btn" title="Rename active tab">
+          <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </button>
+        <select class="art-version-select" id="art-version-select" title="Artifact version history">
+          <option value="1">v1 (Current)</option>
+        </select>
+      </div>
+
+      <div class="art-tabs">
+        <button class="art-tab active" data-tab="preview">👁️ Preview</button>
+        <button class="art-tab" data-tab="code">💻 Code</button>
+        <button class="art-tab" data-tab="data" id="art-data-tab" style="display:none">📊 Data</button>
+        <button class="art-tab" data-tab="console">📟 Console</button>
+      </div>
+
+      <div class="art-actions">
+        <button class="art-btn" id="art-fullscreen-btn" title="Toggle Fullscreen Canvas (Maximize/Restore)"><span class="fs-icon">⛶</span> Fullscreen</button>
+        <button class="art-btn" id="art-run-btn" title="Run code">▶ Run</button>
+        <button class="art-btn primary-art-btn" id="art-send-to-chat-btn" title="Send your edited code directly to JARVIK Chat">💬 Send to Chat</button>
+        <button class="art-btn" id="art-copy-btn" title="Copy code">⧉ Copy</button>
+        <button class="art-btn" id="art-download-btn" title="Download file">💾 Save</button>
+        <button class="art-btn" id="art-popout-btn" title="Open in new window">↗ Tab</button>
+        <button class="art-close" id="art-close-btn" title="Completely hide Co-Work Canvas (Expand Chat to 100%)">✕ Hide</button>
+      </div>
+    </div>
+
+    <!-- CANVAS QUICK CO-WORK ACTIONS -->
+    <div class="art-quick-actions" id="art-quick-actions">
+      <span class="quick-act-lbl">AI Co-Work:</span>
+      <button class="q-chip" data-act="refactor">⚡ Refactor</button>
+      <button class="q-chip" data-act="tests">🧪 Add Tests</button>
+      <button class="q-chip" data-act="security">🛡️ Security Check</button>
+      <button class="q-chip" data-act="docs">📖 Add JSDoc</button>
+      <button class="q-chip" data-act="ui">🎨 Polish UI</button>
+      <button class="q-chip" data-act="sendchat">💬 Send to Chat</button>
+    </div>
+
+    <div class="art-power-row" role="toolbar" aria-label="Canvas power pack">
+      <button id="cd-toggle" class="q-chip" title="Diff previous version vs current edit">◐ Diff</button>
+      <span class="power-dot" aria-hidden="true">·</span>
+      <button id="dv-phone" class="q-chip" aria-pressed="false" title="Phone width">📱 Phone</button>
+      <button id="dv-tablet" class="q-chip" aria-pressed="false" title="Tablet width">📲 Tablet</button>
+      <button id="dv-desktop" class="q-chip" aria-pressed="true" title="Full width">🖥 Desktop</button>
+      <span class="power-dot" aria-hidden="true">·</span>
+      <button id="se-save" class="q-chip" title="Download portable .html">⬇ .html</button>
+      <button id="se-link" class="q-chip" title="Copy blob link, no server">🔗 Copy link</button>
+    </div>
+
+    <!-- CANVAS PANES -->
+    <div class="art-body">
+      <!-- SHARED WORKSPACE FILE EXPLORER (same files as VS Code + Terminal) -->
+      <aside class="art-explorer" id="art-explorer" aria-label="Workspace file explorer">
+        <div class="art-explorer-head">
+          <span>EXPLORER</span>
+          <button id="art-explorer-new" title="New file">＋</button>
+        </div>
+        <div class="art-explorer-tree" id="art-explorer-tree"></div>
+      </aside>
+
+      <div class="art-panes">
+        <!-- 1. Live Interactive Preview -->
+        <div id="art-pane-preview" class="art-pane active">
+          <div class="art-preview-toolbar">
+            <span class="preview-status-pill">● LIVE PREVIEW</span>
+            <div id="lc-chips" role="status" aria-label="Teammates viewing"></div>
+            <button class="art-preview-fs-btn" id="art-preview-fs-btn" title="Maximize preview overlay">⛶ Fullscreen</button>
+          </div>
+          <div id="cd-view" hidden>
+            <div class="cd-cols">
+              <section><div class="cd-head"><span id="cd-old-lbl">old</span><button id="cd-accept-old" class="q-chip">Accept old</button></div><pre id="cd-old" tabindex="0"></pre></section>
+              <section><div class="cd-head"><span id="cd-new-lbl">new</span><button id="cd-accept-new" class="q-chip">Accept new</button></div><pre id="cd-new" tabindex="0"></pre></section>
+            </div>
+            <button id="cd-close" class="q-chip">✕ Close</button>
+          </div>
+          <iframe id="art-frame" sandbox="allow-scripts allow-modals allow-same-origin"></iframe>
+        </div>
+
+        <!-- 2. Live Editable Code Editor -->
+        <div id="art-pane-code" class="art-pane">
+          <div class="lc-wrap" id="lc-wrap-art"><textarea id="art-code-editor" spellcheck="false" placeholder="// Code will appear here... Edit code directly and click 'Send to Chat' or '▶ Run'"></textarea><div class="lc-layer" id="lc-layer-art" aria-hidden="true"></div></div>
+        </div>
+
+        <!-- 3. Interactive Data Table & SVG Chart Viewer -->
+        <div id="art-pane-data" class="art-pane">
+          <div class="data-toolbar">
+            <input type="text" id="data-search-input" placeholder="Search table data…">
+            <div class="data-chart-btns">
+              <button class="chart-type-btn active" data-chart="table">Table</button>
+              <button class="chart-type-btn" data-chart="bar">Bar Chart</button>
+              <button class="chart-type-btn" data-chart="line">Line Chart</button>
+            </div>
+          </div>
+          <div id="data-content-area" class="data-content-area"></div>
+        </div>
+
+        <!-- 4. Real-time Console Log Inspector -->
+        <div id="art-pane-console" class="art-pane">
+          <div id="art-console-logs" class="art-logs"><div class="log-info">Console initialized. Calls to console.log() in your artifact will appear here.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CANVAS CO-WORK CHAT DOCK (Direct prompt input from canvas to JARVIK) -->
+    <div class="canvas-dock" id="canvas-dock">
+      <input type="text" id="canvas-prompt-input" placeholder="Ask JARVIK about your edited code (e.g. 'Add dark mode toggle', 'Fix bug on line 14')…">
+      <button id="canvas-send-btn" title="Send this prompt with your edited code to JARVIK">Send to JARVIK ⚡</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- PROJECT KNOWLEDGE SHELF MODAL -->
+<div id="knowledge-modal" class="auth-overlay hidden">
+  <div class="settings-card knowledge-card">
+    <div class="settings-header">
+      <div class="settings-title">📁 Project Knowledge Shelf</div>
+      <button class="settings-close" id="knowledge-close">×</button>
+    </div>
+    <div class="settings-body">
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.6">
+        Upload project documents, schemas, style guides, or API specifications. JARVIK injects this knowledge as persistent background context into all conversations, acting like a true teammate who knows your entire codebase.
+      </p>
+
+      <div class="knowledge-drop-area" id="knowledge-drop-area">
+        <div style="font-size:24px;margin-bottom:6px">📥</div>
+        <div style="font-size:13px;font-weight:600">Drop files here or click to upload</div>
+        <div style="font-size:11px;color:var(--subtle);margin-top:2px">Supports .txt, .md, .json, .js, .py, .sql, .csv, .pdf</div>
+        <input type="file" id="knowledge-file-input" multiple hidden>
+      </div>
+
+      <div class="knowledge-list-title">Indexed Knowledge Files (<span id="knowledge-count-lbl">0</span>)</div>
+      <div class="knowledge-list" id="knowledge-list"></div>
+    </div>
+    <div class="settings-footer">
+      <button class="hcta sec" id="knowledge-clear-btn" style="margin-right:auto">Clear All</button>
+      <button class="settings-save-btn" id="knowledge-done-btn">Done</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL -->
+<!-- GENERIC MODAL (e.g. Model Picker) -->
 <div id="modal" class="hidden">
   <div class="mbox"><button id="modal-close">×</button><div id="modal-body"></div></div>
+</div>
+
+<!-- COMMAND PALETTE (Ctrl+K) -->
+<div id="cmd-palette" class="cmd-palette hidden">
+  <div class="cmd-box">
+    <div class="cmd-input-wrap">
+      <svg class="cmd-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="cmd-input" placeholder="Type a command or search conversations… (Esc to exit)" autocomplete="off">
+      <span class="cmd-kbd">ESC</span>
+    </div>
+    <div id="cmd-results" class="cmd-results"></div>
+    <div class="cmd-footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
+      <span><kbd>↵</kbd> Select</span>
+      <span><kbd>ESC</kbd> Close</span>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS & INFERENCE PARAMETERS MODAL -->
+<div id="settings-modal" class="auth-overlay hidden">
+  <div class="settings-card">
+    <div class="settings-header">
+      <div class="settings-title">⚙️ JARVIK Settings &amp; Parameters</div>
+      <button class="settings-close" id="settings-close">×</button>
+    </div>
+    <div class="settings-body">
+
+      <div class="setting-group" id="prov-group">
+        <div class="setting-group-title">AI Provider &amp; Endpoint</div>
+        <div class="prov-grid" id="prov-grid"><!-- provider chips rendered by script.js --></div>
+        <div class="prov-field">
+          <label class="auth-label" for="prov-key-input">API Key <span class="prov-local-note">🔒 stays in this browser</span></label>
+          <div class="prov-key-row">
+            <input class="auth-input" id="prov-key-input" type="password" placeholder="sk-or-v1-…" autocomplete="off" spellcheck="false">
+            <label class="key-show-row prov-show"><input type="checkbox" id="prov-key-show"> Show</label>
+            <button class="prov-save-btn" id="prov-key-save" type="button">Save key</button>
+          </div>
+        </div>
+        <div class="prov-field">
+          <label class="auth-label" for="prov-endpoint-input">Endpoint (Base URL) <span class="prov-local-note">editable — gateways &amp; local runtimes welcome</span></label>
+          <div class="prov-endpoint-row">
+            <input class="auth-input" id="prov-endpoint-input" spellcheck="false" autocomplete="off">
+            <button class="prov-icon-btn" id="prov-endpoint-reset" type="button" title="Reset endpoint to preset default">↺</button>
+          </div>
+        </div>
+        <div class="prov-field">
+          <label class="auth-label" for="prov-model-input">Model</label>
+          <div class="prov-model-row">
+            <input class="auth-input" id="prov-model-input" list="prov-model-datalist" placeholder="model id — type or pick" spellcheck="false" autocomplete="off">
+            <datalist id="prov-model-datalist"></datalist>
+            <button class="prov-save-btn" id="prov-fetch-models" type="button" title="GET {endpoint}/models">Fetch models</button>
+          </div>
+        </div>
+        <div class="prov-status" id="prov-status"></div>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-group-title">AI Persona &amp; Directive</div>
+        <select id="persona-select" class="settings-select">
+          <option value="Default">JARVIK Core (Helpful, articulate, intelligent)</option>
+          <option value="Senior Architect">Senior Software Architect (Clean code, patterns &amp; security)</option>
+          <option value="Research Scientist">Research Scientist (Deep rigor, citations &amp; logic)</option>
+          <option value="Patient Tutor">Socratic Tutor (Step-by-step patient teaching)</option>
+          <option value="Startup Mentor">Startup Pitch Coach (Brutal traction &amp; product focus)</option>
+          <option value="Sarcastic Butler">Sarcastic Butler (Witty, droll British assistant)</option>
+          <option value="Pirate">Pirate (Sea dog humor, accurate answers)</option>
+          <option value="Custom">Custom Prompt (Enter below)</option>
+        </select>
+        <textarea id="custom-system-prompt" class="settings-textarea" rows="3" placeholder="Enter custom system directive instructions…"></textarea>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-group-title">Inference Parameters</div>
+        <div class="slider-row">
+          <div class="slider-label"><span>Temperature</span><span id="param-temp-val">0.7</span></div>
+          <input type="range" id="param-temp" min="0" max="1.5" step="0.05" value="0.7">
+          <div class="slider-desc">Lower is deterministic and precise; higher is creative and exploratory.</div>
+        </div>
+        <div class="slider-row">
+          <div class="slider-label"><span>Max Output Tokens</span><span id="param-tokens-val">4096</span></div>
+          <input type="range" id="param-tokens" min="512" max="8192" step="512" value="4096">
+        </div>
+        <div class="slider-row">
+          <div class="slider-label"><span>Top-P Nucleus Sampling</span><span id="param-top-p-val">0.9</span></div>
+          <input type="range" id="param-top-p" min="0.1" max="1.0" step="0.05" value="0.9">
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-group-title">Audio &amp; Voice Synthesis</div>
+        <div class="toggle-row">
+          <span>Futuristic Sci-Fi Sound FX (UI Audio Cues)</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="sfx-setting-toggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="select-field">
+          <label class="auth-label">Text-to-Speech Voice</label>
+          <select id="tts-voice-select" class="settings-select"></select>
+        </div>
+        <div class="slider-row">
+          <div class="slider-label"><span>Speech Rate</span><span id="tts-rate-val">1.0x</span></div>
+          <input type="range" id="tts-rate" min="0.7" max="1.4" step="0.05" value="1.0">
+        </div>
+      </div>
+
+      <div class="setting-group"><div class="setting-group-title">Restore Points</div><button class="settings-save-btn" id="rp-save">Snapshot now</button><div id="rp-list"></div></div>
+      <div class="setting-group"><div class="setting-group-title">Scheduled Runs</div><textarea id="sr-prompt" class="settings-textarea" rows="2" placeholder="Prompt to run on schedule…"></textarea><input id="sr-minutes" class="auth-input" type="number" min="1" placeholder="Every N minutes"><div style="display:flex;gap:8px;margin-top:8px"><button class="settings-save-btn" id="sr-save">Save schedule</button><button class="prov-icon-btn" id="sr-clear" title="Clear schedule">✕</button></div></div>
+
+    </div>
+    <div class="settings-footer">
+      <button class="settings-save-btn" id="settings-save-btn">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXPORT & SHARE MODAL -->
+<div id="export-modal" class="auth-overlay hidden">
+  <div class="auth-card export-card">
+    <div class="export-header">
+      <div class="auth-title">Export &amp; Share Conversation</div>
+      <button class="settings-close" id="export-close">×</button>
+    </div>
+    <div class="export-options">
+      <button class="export-tile" id="export-md-btn">
+        <span class="tile-icon">📝</span>
+        <div class="tile-meta">
+          <div class="tile-title">Markdown File (.md)</div>
+          <div class="tile-desc">Clean, readable markdown for Obsidian, Notion, or GitHub</div>
+        </div>
+      </button>
+      <button class="export-tile" id="export-html-btn">
+        <span class="tile-icon">🌐</span>
+        <div class="tile-meta">
+          <div class="tile-title">Styled Web Document (.html)</div>
+          <div class="tile-desc">Self-contained transcript with embedded dark/light styling</div>
+        </div>
+      </button>
+      <button class="export-tile" id="export-json-btn">
+        <span class="tile-icon">📦</span>
+        <div class="tile-meta">
+          <div class="tile-title">JSON Archive (.json)</div>
+          <div class="tile-desc">Raw structured conversation data with all message attributes</div>
+        </div>
+      </button>
+      <button class="export-tile" id="export-print-btn">
+        <span class="tile-icon">🖨️</span>
+        <div class="tile-meta">
+          <div class="tile-title">Print / Save as PDF</div>
+          <div class="tile-desc">Opens browser print dialog formatted for paper/PDF reports</div>
+        </div>
+      </button>
+    </div>
+    <div class="backup-divider"><span>Backup &amp; Restore</span></div>
+    <div class="backup-row">
+      <button class="hcta sec" id="backup-all-btn">Backup All Chats (.json)</button>
+      <label class="hcta sec file-label-btn">
+        Import Backup
+        <input type="file" id="import-file-input" accept=".json" hidden>
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- PINNED MESSAGES MODAL -->
+<div id="pins-modal" class="auth-overlay hidden">
+  <div class="pins-box">
+    <div class="pins-header">
+      <div class="pins-title">📌 Pinned Messages</div>
+      <button class="settings-close" id="pins-close">×</button>
+    </div>
+    <div id="pins-list" class="pins-list"></div>
+  </div>
+</div>
+
+<!-- IMAGE LIGHTBOX MODAL -->
+<div id="lightbox-modal" class="lightbox-overlay hidden">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <img id="lightbox-img" src="" alt="Full preview">
+    <div class="lightbox-actions">
+      <button id="lightbox-save" class="hcta main">💾 Save Full Image</button>
+    </div>
+  </div>
 </div>
 
 <!-- DEBATE MODAL -->
@@ -375,13 +951,268 @@
   </div>
 </div>
 
-<!-- FIREBASE SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<!-- VS CODE STUDIO MODAL (Full In-App IDE) -->
+<div class="vscode-overlay hidden" id="vscode-modal">
+  <div class="vscode-window" id="vscode-window">
+    <!-- Window Titlebar -->
+    <div class="vsc-titlebar">
+      <div class="vsc-tb-left">
+        <div class="vsc-menu-bar">
+          <span class="vsc-menu-item">File</span>
+          <span class="vsc-menu-item">Edit</span>
+          <span class="vsc-menu-item">Selection</span>
+          <span class="vsc-menu-item">View</span>
+          <span class="vsc-menu-item">Go</span>
+          <span class="vsc-menu-item">Run</span>
+          <span class="vsc-menu-item">Terminal</span>
+          <span class="vsc-menu-item">Help</span>
+        </div>
+      </div>
+      <div class="vsc-tb-center" id="vsc-search-title">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span>JARVIK Code &mdash; <strong id="vsc-active-filename-title">index.html</strong></span>
+      </div>
+      <div class="vsc-tb-right">
+        <button class="vsc-win-btn" id="vsc-minimize-btn" title="Minimize">—</button>
+        <button class="vsc-win-btn" id="vsc-fullscreen-btn" title="Toggle Fullscreen">▢</button>
+        <button class="vsc-win-btn close" id="vsc-close-btn" title="Close Studio (Esc)">✕</button>
+      </div>
+    </div>
 
-<script src="https://js.puter.com/v2/"></script>
+    <!-- Main Workspace Body -->
+    <div class="vsc-body">
+      <!-- Left Activity Bar -->
+      <div class="vsc-activity-bar">
+        <div class="vsc-act-top">
+          <button class="vsc-act-icon active" id="vsc-act-explorer" title="Explorer (Ctrl+Shift+E)">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9z"/></svg>
+          </button>
+        </div>
+        <div class="vsc-act-bottom">
+          <button class="vsc-act-icon" id="vsc-act-settings" title="Settings">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- File Explorer Sidebar -->
+      <div class="vsc-sidebar" id="vsc-sidebar">
+        <div class="vsc-sb-header">
+          <span class="vsc-sb-title">EXPLORER</span>
+          <div class="vsc-sb-actions">
+            <button id="vsc-new-file-btn" title="New File">+📄</button>
+            <button id="vsc-new-folder-btn" title="New Folder">📁+</button>
+            <button id="vsc-refresh-tree-btn" title="Refresh Explorer">🔄</button>
+          </div>
+        </div>
+        <div class="vsc-folder-group">
+          <div class="vsc-folder-title">
+            <span class="vsc-arrow">▼</span>
+            <span>WORKSPACE (JARVIK)</span>
+          </div>
+          <div class="vsc-file-list" id="vsc-file-tree">
+            <!-- Rendered by script.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Editor & Terminal Area -->
+      <div class="vsc-main-col">
+        <!-- Tab Bar -->
+        <div class="vsc-tabs-bar">
+          <div class="vsc-tabs-strip" id="vsc-tabs-strip">
+            <!-- Tabs rendered by script.js -->
+          </div>
+          <div class="vsc-tab-actions">
+            <button class="vsc-btn-run" id="vsc-run-canvas-btn" title="Run active file in Live Co-Work Canvas (Ctrl+Enter)">
+              <span>▶ Run in Canvas</span>
+            </button>
+            <button class="vsc-btn-ask" id="vsc-send-chat-btn" title="Send code to JARVIK AI Chat">
+              <span>💬 Ask JARVIK</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Breadcrumbs Navigation -->
+        <div class="vsc-breadcrumbs" id="vsc-breadcrumbs">
+          <span>workspace</span> <span class="sep">&gt;</span> <span id="vsc-crumb-file">index.html</span>
+        </div>
+
+        <!-- Code Surface -->
+        <div class="vsc-editor-wrap">
+          <div class="vsc-gutter" id="vsc-gutter">1</div>
+          <div class="lc-wrap" id="lc-wrap-vsc"><textarea class="vsc-code-input" id="vsc-code-input" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea><div class="lc-layer" id="lc-layer-vsc" aria-hidden="true"></div></div>
+          <div class="vsc-minimap" id="vsc-minimap"></div>
+        </div>
+
+        <!-- Integrated Terminal (Collapsible) -->
+        <div class="vsc-terminal-panel" id="vsc-terminal-panel">
+          <div class="vsc-term-header">
+            <div class="vsc-term-tabs">
+              <span class="vsc-ttab">PROBLEMS <span class="term-count">0</span></span>
+              <span class="vsc-ttab">OUTPUT</span>
+              <span class="vsc-ttab">DEBUG CONSOLE</span>
+              <span class="vsc-ttab active">TERMINAL</span>
+            </div>
+            <div class="vsc-term-actions">
+              <button id="vsc-term-clear-btn" title="Clear Terminal">🗑️</button>
+              <button id="vsc-term-toggle-btn" title="Toggle Terminal Size">↕</button>
+              <button id="vsc-term-close-btn" title="Close Terminal">✕</button>
+            </div>
+          </div>
+          <div class="vsc-term-body" id="vsc-term-body">
+            <div class="vsc-term-log" id="vsc-term-log">
+              <div class="term-line info">JARVIK Shell v3.0 — persistent workspace · real JavaScript sandbox</div>
+              <div class="term-line info">Type <span class="cmd-hl">help</span> for files &amp; projects (<span class="cmd-hl">ls</span>, <span class="cmd-hl">mkdir</span>, <span class="cmd-hl">echo &gt; file</span>, <span class="cmd-hl">node</span>, <span class="cmd-hl">new myapp</span>)</div>
+            </div>
+            <div class="vsc-term-prompt-line">
+              <span class="term-ps1">jarvik@workspace:~$</span>
+              <input type="text" class="vsc-term-input" id="vsc-term-input" placeholder="Type a command (try 'help' or 'run')..." autocomplete="off" spellcheck="false">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="vsc-statusbar">
+      <div class="vsc-sb-left">
+        <span class="vsc-sb-item"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="9" r="3"/><path d="M6 9v6M9 9l6-3M9 15l6-3"/></svg> main*</span>
+        <span class="vsc-sb-item">⨂ 0  ⚠ 0</span>
+        <span class="vsc-sb-item">⚡ Live Server: 5500</span>
+      </div>
+      <div class="vsc-sb-mid">
+        <span id="vsc-status-msg">JARVIK IDE Ready</span>
+      </div>
+      <div class="vsc-sb-right">
+        <span class="vsc-sb-item" id="vsc-line-col">Ln 1, Col 1</span>
+        <span class="vsc-sb-item">Spaces: 2</span>
+        <span class="vsc-sb-item">UTF-8</span>
+        <span class="vsc-sb-item">LF</span>
+        <span class="vsc-sb-item" id="vsc-lang-mode">HTML</span>
+        <span class="vsc-sb-item">Prettier</span>
+        <span class="vsc-sb-item">🔔</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IN-APP WEB BROWSER MODAL (Surf the Public Internet) -->
+<div class="browser-overlay hidden" id="browser-modal">
+  <div class="browser-window" id="browser-window">
+    <!-- Window Titlebar with modern Tab Strip -->
+    <div class="br-titlebar">
+      <div class="br-traffic-lights">
+        <span class="br-dot br-red" id="br-close-btn" title="Close Browser (Esc)"></span>
+        <span class="br-dot br-yellow" id="br-min-btn" title="Minimize"></span>
+        <span class="br-dot br-green" id="br-full-btn" title="Toggle Fullscreen"></span>
+      </div>
+
+      <!-- Tab Strip -->
+      <div class="br-tab-strip" id="br-tab-strip">
+        <!-- Tabs dynamically rendered by script.js -->
+      </div>
+
+      <button class="br-new-tab-btn" id="br-new-tab-btn" title="New Tab (Ctrl+T)">+</button>
+
+      <div class="br-title-extra">
+        <span class="br-engine-badge">JARVIK Web Engine</span>
+      </div>
+    </div>
+
+    <!-- Navigation & Omnibox Bar -->
+    <div class="br-nav-bar">
+      <div class="br-nav-btns">
+        <button class="br-nav-btn" id="br-back-btn" title="Back">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke-width="2" fill="none" stroke="currentColor"><path d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="br-nav-btn" id="br-forward-btn" title="Forward">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke-width="2" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <button class="br-nav-btn" id="br-reload-btn" title="Reload (Ctrl+R)">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke-width="2" fill="none" stroke="currentColor"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        </button>
+        <button class="br-nav-btn" id="br-home-btn" title="Browser Home">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke-width="2" fill="none" stroke="currentColor"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </button>
+      </div>
+
+      <!-- Omnibox (Address & Search Bar) -->
+      <form class="br-omnibox-wrap" id="br-omnibox-form">
+        <span class="br-security-lock" id="br-lock-icon" title="Secure connection">🔒</span>
+        <input type="text" class="br-omnibox" id="br-url-input" placeholder="Search the web or enter URL (e.g. en.wikipedia.org or react docs)..." spellcheck="false" autocomplete="off">
+        <button type="button" class="br-clear-url" id="br-clear-url-btn" title="Clear">✕</button>
+        <button type="submit" class="br-go-btn" id="br-go-btn" title="Navigate">➜</button>
+      </form>
+
+      <!-- Action Tools -->
+      <div class="br-tools-cluster">
+        <button class="br-action-btn jarvik-chat" id="br-ask-jarvik-btn" title="Ask JARVIK AI to summarize or extract this page">
+          <span>💬 Ask JARVIK</span>
+        </button>
+        <button class="br-action-btn" id="br-external-btn" title="Open current URL in external browser window (useful for sites that block iframes)">
+          <span>↗ Open in Tab</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bookmarks / Quick Navigation Bar -->
+    <div class="br-bookmarks-bar">
+      <span class="br-bm-label">Favorites:</span>
+      <div class="br-bm-items" id="br-bm-items">
+        <button class="br-bm-chip" data-url="https://en.m.wikipedia.org/wiki/Main_Page">🌐 Wikipedia</button>
+        <button class="br-bm-chip" data-url="https://html.duckduckgo.com/html/?q=artificial+intelligence">🦆 DuckDuckGo</button>
+        <button class="br-bm-chip" data-url="https://devdocs.io/">⚡ DevDocs</button>
+        <button class="br-bm-chip" data-url="https://news.ycombinator.com/">📰 Hacker News</button>
+        <button class="br-bm-chip" data-url="https://developer.mozilla.org/en-US/">📚 MDN Web Docs</button>
+        <button class="br-bm-chip" data-url="https://archive.org/">🏛️ Archive.org</button>
+        <button class="br-bm-chip" data-url="https://codepen.io/pen/">🧪 CodePen</button>
+        <button class="br-bm-chip" data-url="https://example.com">📄 Example.com</button>
+      </div>
+    </div>
+
+    <!-- Loading Bar Indicator -->
+    <div class="br-progress-bar" id="br-progress-bar"></div>
+
+    <!-- Viewport Container -->
+    <div class="br-viewport-container">
+      <iframe class="br-iframe" id="br-iframe" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-presentation" allowfullscreen></iframe>
+      
+      <!-- Fallback / Embed Tip Banner -->
+      <div class="br-footer-bar">
+        <span class="br-info-icon">ℹ️</span>
+        <span class="br-info-text">Surfing public web. Tip: If a website blocks iframe embedding due to X-Frame-Options (e.g. Google, GitHub, YouTube), click <strong>"↗ Open in Tab"</strong> above to view it instantly!</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- F20 CODE SANDBOX MOUNT -->
+<!-- JARVIK-F20-MOUNT -->
+
+<!-- F21 MERMAID EDITOR MOUNT -->
+<!-- JARVIK-F21-MOUNT -->
+
+<!-- F22 KATEX SCRATCHPAD MOUNT -->
+<!-- JARVIK-F22-MOUNT -->
+
+<!-- F23 MARKDOWN EDITOR MOUNT -->
+<!-- JARVIK-F23-MOUNT -->
+
+<!-- Core application scripts -->
+<script src="vendor/purify.min.js"></script>
+<script src="runtime.js"></script>
 <script src="script.js"></script>
+<script src="extras.js"></script>
+<script src="power.js"></script>
+<script src="power2.js"></script>
+<script src="agents.js"></script>
+<script src="studio.js"></script>
+<script src="engage.js"></script>
+<script src="ui.js"></script>
+<script src="power5.js"></script>
+<script src="power5b.js"></script>
+<script src="console.js"></script>
 
 </body>
 </html>
